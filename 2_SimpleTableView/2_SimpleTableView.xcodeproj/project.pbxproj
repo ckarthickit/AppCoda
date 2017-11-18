@@ -74,8 +74,9 @@
 		35EF06511FC07F5300027DF4 /* AppFiles */ = {
 			isa = PBXGroup;
 			children = (
-				35EF063E1FC07E7400027DF4 /* SimpleTableViewController.h */,
-				35EF063F1FC07E7400027DF4 /* SimpleTableViewController.m */,
+				35EF063B1FC07E7400027DF4 /* AppDelegate.h */,
+				35EF063C1FC07E7400027DF4 /* AppDelegate.m */,
+				35EF064A1FC07E7400027DF4 /* main.m */,
 			);
 			path = AppFiles;
 			sourceTree = "<group>";
@@ -83,9 +84,8 @@
 		35EF06521FC07F5C00027DF4 /* Universal */ = {
 			isa = PBXGroup;
 			children = (
-				35EF063B1FC07E7400027DF4 /* AppDelegate.h */,
-				35EF063C1FC07E7400027DF4 /* AppDelegate.m */,
-				35EF064A1FC07E7400027DF4 /* main.m */,
+				35EF063E1FC07E7400027DF4 /* SimpleTableViewController.h */,
+				35EF063F1FC07E7400027DF4 /* SimpleTableViewController.m */,
 			);
 			path = Universal;
 			sourceTree = "<group>";
