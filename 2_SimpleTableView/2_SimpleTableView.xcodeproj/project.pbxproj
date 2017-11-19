@@ -31,6 +31,7 @@
 		35EF06781FC13B8A00027DF4 /* mushroom_risotto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 35EF06681FC13B8A00027DF4 /* mushroom_risotto.jpg */; };
 		35EF067A1FC13D4B00027DF4 /* SimpleTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35EF06791FC13D4B00027DF4 /* SimpleTableCell.xib */; };
 		35EF067E1FC141B300027DF4 /* SimpleTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35EF067D1FC141B300027DF4 /* SimpleTableCell.m */; };
+		35EF06801FC1B56D00027DF4 /* recipies.plist in Resources */ = {isa = PBXBuildFile; fileRef = 35EF067F1FC1B56D00027DF4 /* recipies.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		35EF06791FC13D4B00027DF4 /* SimpleTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimpleTableCell.xib; sourceTree = "<group>"; };
 		35EF067C1FC141B300027DF4 /* SimpleTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SimpleTableCell.h; sourceTree = "<group>"; };
 		35EF067D1FC141B300027DF4 /* SimpleTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SimpleTableCell.m; sourceTree = "<group>"; };
+		35EF067F1FC1B56D00027DF4 /* recipies.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = recipies.plist; path = Assets.xcassets/recipies.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				35EF06441FC07E7400027DF4 /* Assets.xcassets */,
 				35EF06461FC07E7400027DF4 /* LaunchScreen.storyboard */,
 				35EF06491FC07E7400027DF4 /* Info.plist */,
+				35EF067F1FC1B56D00027DF4 /* recipies.plist */,
 			);
 			path = 2_SimpleTableView;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 				35EF06751FC13B8A00027DF4 /* white_chocolate_donut.jpg in Resources */,
 				35EF06771FC13B8A00027DF4 /* thai_shrimp_cake.jpg in Resources */,
 				35EF06711FC13B8A00027DF4 /* angry_birds_cake.jpg in Resources */,
+				35EF06801FC1B56D00027DF4 /* recipies.plist in Resources */,
 				35EF06731FC13B8A00027DF4 /* instant_noodle_with_egg.jpg in Resources */,
 				35EF06781FC13B8A00027DF4 /* mushroom_risotto.jpg in Resources */,
 				35EF06451FC07E7400027DF4 /* Assets.xcassets in Resources */,
