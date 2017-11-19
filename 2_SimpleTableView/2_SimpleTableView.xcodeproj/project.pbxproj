@@ -13,7 +13,6 @@
 		35EF06451FC07E7400027DF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35EF06441FC07E7400027DF4 /* Assets.xcassets */; };
 		35EF06481FC07E7400027DF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35EF06461FC07E7400027DF4 /* LaunchScreen.storyboard */; };
 		35EF064B1FC07E7400027DF4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 35EF064A1FC07E7400027DF4 /* main.m */; };
-		35EF06541FC0868C00027DF4 /* creme_brelee.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 35EF06531FC0868C00027DF4 /* creme_brelee.jpg */; };
 		35EF06691FC13B8A00027DF4 /* vegetable_curry.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 35EF06591FC13B8900027DF4 /* vegetable_curry.jpg */; };
 		35EF066A1FC13B8A00027DF4 /* creme_brelee.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 35EF065A1FC13B8900027DF4 /* creme_brelee.jpg */; };
 		35EF066B1FC13B8A00027DF4 /* ham_and_egg_sandwich.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 35EF065B1FC13B8900027DF4 /* ham_and_egg_sandwich.jpg */; };
@@ -30,6 +29,8 @@
 		35EF06761FC13B8A00027DF4 /* full_breakfast.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 35EF06661FC13B8A00027DF4 /* full_breakfast.jpg */; };
 		35EF06771FC13B8A00027DF4 /* thai_shrimp_cake.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 35EF06671FC13B8A00027DF4 /* thai_shrimp_cake.jpg */; };
 		35EF06781FC13B8A00027DF4 /* mushroom_risotto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 35EF06681FC13B8A00027DF4 /* mushroom_risotto.jpg */; };
+		35EF067A1FC13D4B00027DF4 /* SimpleTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35EF06791FC13D4B00027DF4 /* SimpleTableCell.xib */; };
+		35EF067E1FC141B300027DF4 /* SimpleTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35EF067D1FC141B300027DF4 /* SimpleTableCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,7 +44,6 @@
 		35EF06471FC07E7400027DF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		35EF06491FC07E7400027DF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35EF064A1FC07E7400027DF4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		35EF06531FC0868C00027DF4 /* creme_brelee.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = creme_brelee.jpg; path = Assets.xcassets/creme_brelee.jpg; sourceTree = "<group>"; };
 		35EF06591FC13B8900027DF4 /* vegetable_curry.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = vegetable_curry.jpg; path = Assets.xcassets/simpletable_image_pack/vegetable_curry.jpg; sourceTree = "<group>"; };
 		35EF065A1FC13B8900027DF4 /* creme_brelee.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = creme_brelee.jpg; path = Assets.xcassets/simpletable_image_pack/creme_brelee.jpg; sourceTree = "<group>"; };
 		35EF065B1FC13B8900027DF4 /* ham_and_egg_sandwich.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = ham_and_egg_sandwich.jpg; path = Assets.xcassets/simpletable_image_pack/ham_and_egg_sandwich.jpg; sourceTree = "<group>"; };
@@ -60,6 +60,9 @@
 		35EF06661FC13B8A00027DF4 /* full_breakfast.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = full_breakfast.jpg; path = Assets.xcassets/simpletable_image_pack/full_breakfast.jpg; sourceTree = "<group>"; };
 		35EF06671FC13B8A00027DF4 /* thai_shrimp_cake.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = thai_shrimp_cake.jpg; path = Assets.xcassets/simpletable_image_pack/thai_shrimp_cake.jpg; sourceTree = "<group>"; };
 		35EF06681FC13B8A00027DF4 /* mushroom_risotto.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = mushroom_risotto.jpg; path = Assets.xcassets/simpletable_image_pack/mushroom_risotto.jpg; sourceTree = "<group>"; };
+		35EF06791FC13D4B00027DF4 /* SimpleTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimpleTableCell.xib; sourceTree = "<group>"; };
+		35EF067C1FC141B300027DF4 /* SimpleTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SimpleTableCell.h; sourceTree = "<group>"; };
+		35EF067D1FC141B300027DF4 /* SimpleTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SimpleTableCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,8 +95,8 @@
 		35EF063A1FC07E7400027DF4 /* 2_SimpleTableView */ = {
 			isa = PBXGroup;
 			children = (
+				35EF067B1FC1416A00027DF4 /* SimpleTableCell */,
 				35EF06611FC13B8A00027DF4 /* angry_birds_cake.jpg */,
-				35EF06531FC0868C00027DF4 /* creme_brelee.jpg */,
 				35EF065A1FC13B8900027DF4 /* creme_brelee.jpg */,
 				35EF065E1FC13B8A00027DF4 /* egg_benedict.jpg */,
 				35EF06661FC13B8A00027DF4 /* full_breakfast.jpg */,
@@ -136,6 +139,16 @@
 				35EF063F1FC07E7400027DF4 /* SimpleTableViewController.m */,
 			);
 			path = Universal;
+			sourceTree = "<group>";
+		};
+		35EF067B1FC1416A00027DF4 /* SimpleTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				35EF06791FC13D4B00027DF4 /* SimpleTableCell.xib */,
+				35EF067C1FC141B300027DF4 /* SimpleTableCell.h */,
+				35EF067D1FC141B300027DF4 /* SimpleTableCell.m */,
+			);
+			path = SimpleTableCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,8 +216,8 @@
 				35EF066E1FC13B8A00027DF4 /* egg_benedict.jpg in Resources */,
 				35EF066C1FC13B8A00027DF4 /* japanese_noodle_with_pork.jpg in Resources */,
 				35EF066B1FC13B8A00027DF4 /* ham_and_egg_sandwich.jpg in Resources */,
+				35EF067A1FC13D4B00027DF4 /* SimpleTableCell.xib in Resources */,
 				35EF06751FC13B8A00027DF4 /* white_chocolate_donut.jpg in Resources */,
-				35EF06541FC0868C00027DF4 /* creme_brelee.jpg in Resources */,
 				35EF06771FC13B8A00027DF4 /* thai_shrimp_cake.jpg in Resources */,
 				35EF06711FC13B8A00027DF4 /* angry_birds_cake.jpg in Resources */,
 				35EF06731FC13B8A00027DF4 /* instant_noodle_with_egg.jpg in Resources */,
@@ -228,6 +241,7 @@
 			files = (
 				35EF06401FC07E7400027DF4 /* SimpleTableViewController.m in Sources */,
 				35EF064B1FC07E7400027DF4 /* main.m in Sources */,
+				35EF067E1FC141B300027DF4 /* SimpleTableCell.m in Sources */,
 				35EF063D1FC07E7400027DF4 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
