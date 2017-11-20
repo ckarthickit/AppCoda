@@ -107,7 +107,11 @@
     [tablethumbNails removeObjectAtIndex:indexPath.row];
     [tableprepTimes removeObjectAtIndex:indexPath.row];
     [tableselections removeObjectAtIndex:indexPath.row];
+#if 0
     [tableView reloadData];
+#else
+    [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+#endif
 }
 
 - (UITableViewCell *) createNewTableViewCellWithReuseIdentifier:(NSString *)simpleTableIdentifier{
