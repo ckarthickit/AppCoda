@@ -61,6 +61,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    //De-Select the Cell and Perform Appropriate action
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
     UIAlertController *recipieAlert = [UIAlertController alertControllerWithTitle:[tableContents objectAtIndex:indexPath.row]
                                                                           message:[NSString stringWithFormat:@"Can be prepared in %@",[prepTimes objectAtIndex:indexPath.row]]
                                                                    preferredStyle:UIAlertControllerStyleAlert];
