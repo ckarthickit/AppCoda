@@ -10,10 +10,10 @@
 #import "SimpleTableCell.h"
 
 @interface SimpleTableViewController () {
-    NSArray *tableContents;
-    NSArray *thumbNails;
-    NSArray *prepTimes;
-    NSMutableArray<NSNumber *> *selections;
+    NSMutableArray *tableContents;
+    NSMutableArray *tablethumbNails;
+    NSMutableArray *tableprepTimes;
+    NSMutableArray<NSNumber *> *tableselections;
 }
 @end
 
@@ -23,20 +23,20 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 #if 0
-    tableContents = [NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Starbucks Coffee", @"Vegetable Curry", @"Instant Noodle with Egg", @"Noodle with BBQ Pork", @"Japanese Noodle with Pork", @"Green Tea", @"Thai Shrimp Cake", @"Angry Birds Cake", @"Ham and Cheese Panini", nil];
-    thumbNails = [NSArray arrayWithObjects:@"egg_benedict.jpg", @"mushroom_risotto.jpg", @"full_breakfast.jpg", @"hamburger.jpg", @"ham_and_egg_sandwich.jpg", @"creme_brelee.jpg", @"white_chocolate_donut.jpg", @"starbucks_coffee.jpg", @"vegetable_curry.jpg", @"instant_noodle_with_egg.jpg", @"noodle_with_bbq_pork.jpg", @"japanese_noodle_with_pork.jpg", @"green_tea.jpg", @"thai_shrimp_cake.jpg", @"angry_birds_cake.jpg", @"ham_and_cheese_panini.jpg", nil];
-    prepTimes = [NSArray arrayWithObjects:@"30 min",@"30 min",@"20 min",@"30 min",@"10 min",@"1 hour",
+    tableContents = [NSMutableArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Starbucks Coffee", @"Vegetable Curry", @"Instant Noodle with Egg", @"Noodle with BBQ Pork", @"Japanese Noodle with Pork", @"Green Tea", @"Thai Shrimp Cake", @"Angry Birds Cake", @"Ham and Cheese Panini", nil];
+    thumbNails = [NSMutableArray arrayWithObjects:@"egg_benedict.jpg", @"mushroom_risotto.jpg", @"full_breakfast.jpg", @"hamburger.jpg", @"ham_and_egg_sandwich.jpg", @"creme_brelee.jpg", @"white_chocolate_donut.jpg", @"starbucks_coffee.jpg", @"vegetable_curry.jpg", @"instant_noodle_with_egg.jpg", @"noodle_with_bbq_pork.jpg", @"japanese_noodle_with_pork.jpg", @"green_tea.jpg", @"thai_shrimp_cake.jpg", @"angry_birds_cake.jpg", @"ham_and_cheese_panini.jpg", nil];
+    prepTimes = [NSMutableArray arrayWithObjects:@"30 min",@"30 min",@"20 min",@"30 min",@"10 min",@"1 hour",
                  @"2 hours",@"5 mins",@"15 mins",@"5 mins",@"25 mins",@"30 mins",@"5 mins",@"1 hour",@"1 hour",@"2 hours",nil];
 #else
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"recipies" ofType:@"plist"];
     NSLog(@"path of plistfile =%@",plistPath);
     NSDictionary *recipiesInfo = [NSDictionary dictionaryWithContentsOfFile:plistPath];
-    tableContents = [recipiesInfo objectForKey:@"name"];
-    thumbNails = [recipiesInfo objectForKey:@"thumbnail"];
-    prepTimes = [recipiesInfo objectForKey:@"prep_time"];
-    selections = [[NSMutableArray alloc] init];
+    tableContents = [[recipiesInfo objectForKey:@"name"] mutableCopy];
+    tablethumbNails = [[recipiesInfo objectForKey:@"thumbnail"] mutableCopy];
+    tableprepTimes = [[recipiesInfo objectForKey:@"prep_time"] mutableCopy];
+    tableselections = [[NSMutableArray alloc] init];
     for(int i=0; i < tableContents.count; i++) {
-        selections[i] = [NSNumber numberWithBool:NO];
+        tableselections[i] = [NSNumber numberWithBool:NO];
     }
 #endif
 }
@@ -65,16 +65,16 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     UIAlertController *recipieAlert = [UIAlertController alertControllerWithTitle:[tableContents objectAtIndex:indexPath.row]
-                                                                          message:[NSString stringWithFormat:@"Can be prepared in %@",[prepTimes objectAtIndex:indexPath.row]]
+                                                                          message:[NSString stringWithFormat:@"Can be prepared in %@",[tableprepTimes objectAtIndex:indexPath.row]]
                                                                    preferredStyle:UIAlertControllerStyleAlert];
     __weak UITableViewCell *weakCurrentCell = [tableView cellForRowAtIndexPath:indexPath];
     UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK"
                                                      style:UIAlertActionStyleCancel
                                                    handler:^void(UIAlertAction *action){
                                                        UITableViewCell *currentCell = weakCurrentCell;
-                                                       if(selections != nil) {
-                                                           BOOL currentSelStatus = [selections[indexPath.row] boolValue];
-                                                           selections[indexPath.row] = [NSNumber numberWithBool:!currentSelStatus];
+                                                       if(tableselections != nil) {
+                                                           BOOL currentSelStatus = [tableselections[indexPath.row] boolValue];
+                                                           tableselections[indexPath.row] = [NSNumber numberWithBool:!currentSelStatus];
                                                            [self updateCellAccessoryType:currentCell atIndexPath:indexPath];
                                                        }
                                                    }];
@@ -101,6 +101,15 @@
     return currentCell;
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"%s: commitEditingStyle: %d",__PRETTY_FUNCTION__, (int)editingStyle);
+    [tableContents removeObjectAtIndex:indexPath.row];
+    [tablethumbNails removeObjectAtIndex:indexPath.row];
+    [tableprepTimes removeObjectAtIndex:indexPath.row];
+    [tableselections removeObjectAtIndex:indexPath.row];
+    [tableView reloadData];
+}
+
 - (UITableViewCell *) createNewTableViewCellWithReuseIdentifier:(NSString *)simpleTableIdentifier{
 #if DISABLE_CUSTOM_TABLE_VIEW_CELL
     return [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
@@ -116,13 +125,13 @@
         //Custom SimpleTableCell Block -Start
         SimpleTableCell *simpleTableCell = (SimpleTableCell *)rowCell;
         simpleTableCell.nameLabel.text = [tableContents objectAtIndex:indexPath.row];
-        simpleTableCell.thumnailImageView.image = [UIImage imageNamed:[thumbNails objectAtIndex:indexPath.row]];
-        simpleTableCell.prepTimeLabel.text = [prepTimes objectAtIndex:indexPath.row];
+        simpleTableCell.thumnailImageView.image = [UIImage imageNamed:[tablethumbNails objectAtIndex:indexPath.row]];
+        simpleTableCell.prepTimeLabel.text = [tableprepTimes objectAtIndex:indexPath.row];
         //Custom SimpleTableCell Block -End
     }else {
         //Default UITableCellView Block -Start
         rowCell.textLabel.text = [tableContents objectAtIndex:indexPath.row];
-        rowCell.imageView.image = [UIImage imageNamed:[thumbNails objectAtIndex:indexPath.row]];
+        rowCell.imageView.image = [UIImage imageNamed:[tablethumbNails objectAtIndex:indexPath.row]];
         //Default UITableCellView Block -End
     }
     [self updateCellAccessoryType:rowCell atIndexPath:indexPath];
@@ -132,7 +141,7 @@
     if(cell == nil) {
         return;
     }
-    if([selections[indexPath.row] boolValue] == YES) {
+    if([tableselections[indexPath.row] boolValue] == YES) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }else {
         cell.accessoryType = UITableViewCellAccessoryNone;
