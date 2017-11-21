@@ -8,26 +8,41 @@
 
 #import "RecipieBookViewController.h"
 #import "RecipieDetailViewController.h"
+#import "Recipie.h"
 #define GET_RESOURCE(X,Y) [[NSBundle mainBundle] pathForResource:@#X ofType:@#Y]
-const NSString* RECIPIE_NAME_KEY = @"RecipeName";
+static const NSString* RECIPIE_NAME_KEY = @"RecipeName";
+static const NSString* RECIPIE_THUMBNAIL_KEY = @"RecipieThumbnail";
+static const NSString* RECIPIE_PREP_TIME_KEY = @"RecipiePrepTime";
+static const NSString* RECIPIE_INGREDIENTS_KEY = @"RecipieIngredients";
 @interface RecipieBookViewController (){
-    NSArray *recipieNames;
-    NSArray *searchRecipieNamesResult;
+    NSMutableArray<Recipie *> *recipies;
+    NSArray<Recipie *> *searchRecipieNamesResult;
     NSIndexPath *searchResultSelectedIndexPath;
 }
 @property (nonatomic,weak) IBOutlet UITableView *tableView;
 @end
 
 @implementation RecipieBookViewController
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"Recipies.plist loc= %@",GET_RESOURCE(Recipies,plist));
     NSDictionary *recipieBook = [NSDictionary dictionaryWithContentsOfFile:GET_RESOURCE(Recipies,plist)];
+    
     if(recipieBook) {
-        recipieNames = [recipieBook objectForKey:RECIPIE_NAME_KEY];
+        recipies = [[NSMutableArray alloc] init];
+        NSArray *recipieNames = [recipieBook objectForKey:RECIPIE_NAME_KEY];
+        NSArray *recipieImages = [recipieBook objectForKey:RECIPIE_THUMBNAIL_KEY];
+        NSArray *recipiePrepTimes = [recipieBook objectForKey:RECIPIE_PREP_TIME_KEY];
+        NSArray *recipieIngredients = [recipieBook objectForKey:RECIPIE_INGREDIENTS_KEY];
+        for(int i=0; i < recipieNames.count; i++) {
+            Recipie *recipie =[[Recipie alloc] init];
+            recipie.name = recipieNames[i];
+            recipie.imageFile = recipieImages[i];
+            recipie.prepTime = recipiePrepTimes[i];
+            recipie.ingredients = recipieIngredients[i];
+            [recipies addObject: recipie];
+        }
     }
-    NSLog(@"recipieNames= %@", recipieNames);
     UITableView *tableView = nil;
     for(UIView* view in [self.view subviews]) {
         if([view isKindOfClass:[UITableView class]]) {
@@ -54,12 +69,12 @@ const NSString* RECIPIE_NAME_KEY = @"RecipeName";
         RecipieDetailViewController *recipieDetailCtrlr = (RecipieDetailViewController *)[segue destinationViewController];
         if(sender == self.searchDisplayController.searchResultsTableView) {
             if(searchResultSelectedIndexPath) {
-                recipieDetailCtrlr.recipieDescription = [searchRecipieNamesResult objectAtIndex:searchResultSelectedIndexPath.row];
+                recipieDetailCtrlr.recipie = [searchRecipieNamesResult objectAtIndex:searchResultSelectedIndexPath.row];
             }
         }else {
             NSIndexPath *selectedIndex = [self.tableView indexPathForSelectedRow];
             if(selectedIndex) {
-                recipieDetailCtrlr.recipieDescription = [recipieNames objectAtIndex:selectedIndex.row];
+                recipieDetailCtrlr.recipie = [recipies objectAtIndex:selectedIndex.row];
             }
         }
     }
@@ -74,7 +89,7 @@ const NSString* RECIPIE_NAME_KEY = @"RecipeName";
     if(tableView == self.searchDisplayController.searchResultsTableView) {
         return [searchRecipieNamesResult count];
     }else {
-        return recipieNames.count;
+        return recipies.count;
     }
 }
 
@@ -93,11 +108,14 @@ const NSString* RECIPIE_NAME_KEY = @"RecipeName";
     if(currentCell == nil) {
         currentCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:tableCellId];
     }
+    Recipie *recipie;
     if(tableView == self.searchDisplayController.searchResultsTableView) {
-        currentCell.textLabel.text = [searchRecipieNamesResult objectAtIndex:indexPath.row];
+        recipie = [searchRecipieNamesResult objectAtIndex:indexPath.row];
+        currentCell.textLabel.text = recipie.name;
         currentCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }else {
-        currentCell.textLabel.text = [recipieNames objectAtIndex:indexPath.row];
+        recipie = [recipies objectAtIndex:indexPath.row];
+        currentCell.textLabel.text = recipie.name;
     }
     return currentCell;
 }
@@ -121,8 +139,12 @@ const NSString* RECIPIE_NAME_KEY = @"RecipeName";
 
 #pragma mark Search-Filter
 -(void) filterSeachResultsForString: (NSString *) searchString {
+#if 0
     NSPredicate *searchQuery = [NSPredicate predicateWithFormat:@"SELF contains[cd] %@",searchString];
-    self->searchRecipieNamesResult = [recipieNames filteredArrayUsingPredicate:searchQuery];
+#else
+    NSPredicate *searchQuery = [NSPredicate predicateWithFormat:@"name contains[cd] %@",searchString];
+#endif
+    self->searchRecipieNamesResult = [recipies filteredArrayUsingPredicate:searchQuery];
 }
 
 @end

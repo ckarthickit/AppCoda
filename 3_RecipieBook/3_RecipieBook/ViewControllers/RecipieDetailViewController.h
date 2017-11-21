@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Recipie.h"
 
 @interface RecipieDetailViewController : UIViewController
-@property (nonatomic,strong) NSString *recipieDescription;
+@property (nonatomic,strong) Recipie *recipie;
 @end

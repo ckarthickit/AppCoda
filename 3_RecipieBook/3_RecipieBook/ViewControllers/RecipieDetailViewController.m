@@ -9,7 +9,9 @@
 #import "RecipieDetailViewController.h"
 
 @interface RecipieDetailViewController ()
-@property (nonatomic,weak) IBOutlet UILabel *recipieDescriptionLabel;
+@property (weak, nonatomic) IBOutlet UITextView *ingredientsTextView;
+@property (weak, nonatomic) IBOutlet UILabel *prepTimeLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *recipieImage;
 @end
 
 @implementation RecipieDetailViewController
@@ -17,8 +19,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    if([self recipieDescription]) {
-        self.recipieDescriptionLabel.text = [NSString stringWithFormat:@"Selected Recipie: %@",self.recipieDescription];
+    if(self.recipie) {
+        self.title = self.recipie.name;
+        self.ingredientsTextView.text = [RecipieDetailViewController ingredientsDescription:_recipie];
+        self.prepTimeLabel.text = self.recipie.prepTime;
+        self.recipieImage.image = [UIImage imageNamed:self.recipie.imageFile];
     }
 }
 
@@ -31,6 +36,15 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     NSLog(@"destn: %@", [segue destinationViewController]);
+}
+
++ (NSString *) ingredientsDescription: (Recipie *) recipie {
+    NSMutableString *ingredients = [[NSMutableString alloc]init];
+    for(NSString *ingredient in recipie.ingredients) {
+        [ingredients appendString: ingredient];
+        [ingredients appendString:@"\n"];
+    }
+    return [ingredients description];
 }
 
 @end

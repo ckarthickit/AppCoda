@@ -8,6 +8,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Papyrus.ttc">
+            <string>Papyrus</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Recipie Book-->
         <scene sceneID="tne-QT-ifu">
@@ -84,24 +89,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tp8-Zd-RdJ">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo_frame" translatesAutoresizingMaskIntoConstraints="NO" id="nNe-fu-ies">
+                                <rect key="frame" x="39" y="72" width="297" height="199"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="199" id="D0C-7j-DM0"/>
+                                    <constraint firstAttribute="width" constant="297" id="fRZ-iF-Mrj"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvs-GJ-K3J">
+                                <rect key="frame" x="8" y="279" width="180" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="ZUW-5C-Y1J"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="dUP-IB-MKe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PrepTime" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pQR-hM-EUL">
+                                <rect key="frame" x="267" y="279" width="100" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="Fok-v7-Dme"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="bAu-cj-8hY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pNW-DE-hES">
+                                <rect key="frame" x="8" y="317" width="359" height="293"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="tp8-Zd-RdJ" firstAttribute="leading" secondItem="T8u-BC-18B" secondAttribute="leading" id="4om-Kb-0sY"/>
-                            <constraint firstItem="T8u-BC-18B" firstAttribute="trailing" secondItem="tp8-Zd-RdJ" secondAttribute="trailing" id="6h9-aX-W2s"/>
-                            <constraint firstItem="tp8-Zd-RdJ" firstAttribute="top" secondItem="T8u-BC-18B" secondAttribute="top" id="ZPP-Dh-Lag"/>
-                            <constraint firstItem="T8u-BC-18B" firstAttribute="bottom" secondItem="tp8-Zd-RdJ" secondAttribute="bottom" id="jnJ-D9-wwR"/>
+                            <constraint firstItem="pNW-DE-hES" firstAttribute="top" secondItem="hvs-GJ-K3J" secondAttribute="bottom" constant="8" id="5b6-4l-hzK"/>
+                            <constraint firstItem="pQR-hM-EUL" firstAttribute="top" secondItem="nNe-fu-ies" secondAttribute="bottom" constant="8" id="Fwb-G1-4z2"/>
+                            <constraint firstItem="T8u-BC-18B" firstAttribute="trailing" secondItem="pNW-DE-hES" secondAttribute="trailing" constant="8" id="JlI-Ta-9KY"/>
+                            <constraint firstItem="nNe-fu-ies" firstAttribute="top" secondItem="T8u-BC-18B" secondAttribute="top" constant="8" id="P3N-H3-vQP"/>
+                            <constraint firstItem="nNe-fu-ies" firstAttribute="centerX" secondItem="YLW-Tc-qmx" secondAttribute="centerX" id="UbX-2I-VfP"/>
+                            <constraint firstItem="T8u-BC-18B" firstAttribute="trailing" secondItem="pQR-hM-EUL" secondAttribute="trailing" constant="8" id="Wlq-0L-wze"/>
+                            <constraint firstItem="hvs-GJ-K3J" firstAttribute="top" secondItem="nNe-fu-ies" secondAttribute="bottom" constant="8" id="kQh-rl-MN4"/>
+                            <constraint firstItem="T8u-BC-18B" firstAttribute="bottom" secondItem="pNW-DE-hES" secondAttribute="bottom" constant="8" id="r5k-r9-P65"/>
+                            <constraint firstItem="pNW-DE-hES" firstAttribute="leading" secondItem="T8u-BC-18B" secondAttribute="leading" constant="8" id="rbV-Vh-nY4"/>
+                            <constraint firstItem="pQR-hM-EUL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="YLW-Tc-qmx" secondAttribute="leading" constant="20" symbolic="YES" id="wr4-bZ-h7Z"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hvs-GJ-K3J" secondAttribute="trailing" constant="20" symbolic="YES" id="xgn-fi-fJg"/>
+                            <constraint firstItem="hvs-GJ-K3J" firstAttribute="leading" secondItem="T8u-BC-18B" secondAttribute="leading" constant="8" id="zoI-3S-VVo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="T8u-BC-18B"/>
                     </view>
                     <connections>
-                        <outlet property="recipieDescriptionLabel" destination="tp8-Zd-RdJ" id="2vr-0C-OVP"/>
+                        <outlet property="ingredientsTextView" destination="pNW-DE-hES" id="Cux-sb-bHG"/>
+                        <outlet property="prepTimeLabel" destination="pQR-hM-EUL" id="q56-8U-IVW"/>
+                        <outlet property="recipieImage" destination="nNe-fu-ies" id="gaw-uB-PJE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CVN-OX-1bz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -181,6 +225,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="yBB-Yw-zP1" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xrE-YZ-p5n">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -194,4 +239,7 @@
             <point key="canvasLocation" x="-902" y="32"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="photo_frame" width="297" height="199"/>
+    </resources>
 </document>
