@@ -17,6 +17,9 @@
 		353A36E51FC2DAFD00D7EB40 /* RecipieTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 353A36E41FC2DAFD00D7EB40 /* RecipieTableView.m */; };
 		353A36E81FC2DBD400D7EB40 /* RecipieTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 353A36E71FC2DBD400D7EB40 /* RecipieTableViewCell.m */; };
 		353A36EC1FC3D2EE00D7EB40 /* RecipieDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 353A36EB1FC3D2EE00D7EB40 /* RecipieDetailViewController.m */; };
+		353A36EF1FC3E8B800D7EB40 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 353A36EE1FC3E8B800D7EB40 /* AboutViewController.m */; };
+		353A36F31FC3E95D00D7EB40 /* about.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 353A36F11FC3E95D00D7EB40 /* about.jpg */; };
+		353A36F41FC3E95D00D7EB40 /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = 353A36F21FC3E95D00D7EB40 /* about.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,13 +33,17 @@
 		353A36D51FC2B4B800D7EB40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		353A36D71FC2B4B800D7EB40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		353A36D81FC2B4B800D7EB40 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		353A36E01FC2BC2100D7EB40 /* Recipies.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Recipies.plist; path = Assets.xcassets/Recipies.plist; sourceTree = "<group>"; };
+		353A36E01FC2BC2100D7EB40 /* Recipies.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Recipies.plist; sourceTree = "<group>"; };
 		353A36E31FC2DAFD00D7EB40 /* RecipieTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecipieTableView.h; sourceTree = "<group>"; };
 		353A36E41FC2DAFD00D7EB40 /* RecipieTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecipieTableView.m; sourceTree = "<group>"; };
 		353A36E61FC2DBD400D7EB40 /* RecipieTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecipieTableViewCell.h; sourceTree = "<group>"; };
 		353A36E71FC2DBD400D7EB40 /* RecipieTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecipieTableViewCell.m; sourceTree = "<group>"; };
 		353A36EA1FC3D2EE00D7EB40 /* RecipieDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecipieDetailViewController.h; sourceTree = "<group>"; };
 		353A36EB1FC3D2EE00D7EB40 /* RecipieDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecipieDetailViewController.m; sourceTree = "<group>"; };
+		353A36ED1FC3E8B800D7EB40 /* AboutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		353A36EE1FC3E8B800D7EB40 /* AboutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		353A36F11FC3E95D00D7EB40 /* about.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = about.jpg; path = about/about.jpg; sourceTree = "<group>"; };
+		353A36F21FC3E95D00D7EB40 /* about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = about.html; path = about/about.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +76,7 @@
 		353A36C81FC2B4B800D7EB40 /* 3_RecipieBook */ = {
 			isa = PBXGroup;
 			children = (
+				353A36F01FC3E91700D7EB40 /* Resources */,
 				353A36E91FC3D2B400D7EB40 /* ViewControllers */,
 				353A36E21FC2DADA00D7EB40 /* Views */,
 				353A36DF1FC2B5FB00D7EB40 /* AppFile */,
@@ -76,7 +84,6 @@
 				353A36D21FC2B4B800D7EB40 /* Assets.xcassets */,
 				353A36D41FC2B4B800D7EB40 /* LaunchScreen.storyboard */,
 				353A36D71FC2B4B800D7EB40 /* Info.plist */,
-				353A36E01FC2BC2100D7EB40 /* Recipies.plist */,
 			);
 			path = 3_RecipieBook;
 			sourceTree = "<group>";
@@ -109,8 +116,20 @@
 				353A36CD1FC2B4B800D7EB40 /* RecipieBookViewController.m */,
 				353A36EA1FC3D2EE00D7EB40 /* RecipieDetailViewController.h */,
 				353A36EB1FC3D2EE00D7EB40 /* RecipieDetailViewController.m */,
+				353A36ED1FC3E8B800D7EB40 /* AboutViewController.h */,
+				353A36EE1FC3E8B800D7EB40 /* AboutViewController.m */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		353A36F01FC3E91700D7EB40 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				353A36F21FC3E95D00D7EB40 /* about.html */,
+				353A36F11FC3E95D00D7EB40 /* about.jpg */,
+				353A36E01FC2BC2100D7EB40 /* Recipies.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +190,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				353A36F41FC3E95D00D7EB40 /* about.html in Resources */,
+				353A36F31FC3E95D00D7EB40 /* about.jpg in Resources */,
 				353A36E11FC2BC2100D7EB40 /* Recipies.plist in Resources */,
 				353A36D61FC2B4B800D7EB40 /* LaunchScreen.storyboard in Resources */,
 				353A36D31FC2B4B800D7EB40 /* Assets.xcassets in Resources */,
@@ -188,6 +209,7 @@
 				353A36CE1FC2B4B800D7EB40 /* RecipieBookViewController.m in Sources */,
 				353A36E51FC2DAFD00D7EB40 /* RecipieTableView.m in Sources */,
 				353A36D91FC2B4B800D7EB40 /* main.m in Sources */,
+				353A36EF1FC3E8B800D7EB40 /* AboutViewController.m in Sources */,
 				353A36EC1FC3D2EE00D7EB40 /* RecipieDetailViewController.m in Sources */,
 				353A36E81FC2DBD400D7EB40 /* RecipieTableViewCell.m in Sources */,
 				353A36CB1FC2B4B800D7EB40 /* AppDelegate.m in Sources */,

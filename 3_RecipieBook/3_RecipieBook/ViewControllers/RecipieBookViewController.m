@@ -20,6 +20,7 @@ const NSString* RECIPIE_NAME_KEY = @"RecipeName";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"Recipies.plist loc= %@",GET_RESOURCE(Recipies,plist));
     NSDictionary *recipieBook = [NSDictionary dictionaryWithContentsOfFile:GET_RESOURCE(Recipies,plist)];
     if(recipieBook) {
         recipieNames = [recipieBook objectForKey:RECIPIE_NAME_KEY];
