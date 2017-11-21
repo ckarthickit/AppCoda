@@ -13,7 +13,7 @@ const NSString* RECIPIE_NAME_KEY = @"RecipeName";
 @interface RecipieBookViewController (){
     NSArray *recipieNames;
 }
-
+@property (nonatomic,weak) IBOutlet UITableView *tableView;
 @end
 
 @implementation RecipieBookViewController
@@ -47,16 +47,16 @@ const NSString* RECIPIE_NAME_KEY = @"RecipeName";
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     NSLog(@"Transitioning to %@", [[segue destinationViewController] class]);
-    if([[segue destinationViewController] isKindOfClass:[RecipieDetailViewController class]]) {
+    if([segue.identifier isEqualToString: @"showRecipeDetail"]) {
         RecipieDetailViewController *recipieDetailCtrlr = (RecipieDetailViewController *)[segue destinationViewController];
-        if([sender isKindOfClass:[UITableViewCell class]]) {
-            UITableViewCell *cell = (UITableViewCell *) sender;
-            recipieDetailCtrlr.recipieDescription = cell.textLabel.text;
+        NSIndexPath *selectedIndex = [self.tableView indexPathForSelectedRow];
+        if(selectedIndex) {
+            recipieDetailCtrlr.recipieDescription = [recipieNames objectAtIndex:selectedIndex.row];
         }
     }
 }
 
-#pragma mark Recipie DataSource
+#pragma mark Recipie-Table DataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -82,6 +82,12 @@ const NSString* RECIPIE_NAME_KEY = @"RecipeName";
     }
     currentCell.textLabel.text = [recipieNames objectAtIndex:indexPath.row];
     return currentCell;
+}
+
+#pragma mark Recipie-Table DataDelegate
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
 @end

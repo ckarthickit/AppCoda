@@ -29,7 +29,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="A6d-Zu-9cE" kind="show" id="uv9-o3-YKZ"/>
+                                            <segue destination="A6d-Zu-9cE" kind="show" identifier="showRecipeDetail" id="uv9-o3-YKZ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -45,6 +45,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Recipie Book" id="6gV-vK-cZN"/>
+                    <connections>
+                        <outlet property="tableView" destination="z2E-Z1-V7v" id="Qnh-ri-TTC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
