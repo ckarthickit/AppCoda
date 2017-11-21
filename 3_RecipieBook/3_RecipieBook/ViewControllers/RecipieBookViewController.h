@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RecipieBookViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface RecipieBookViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UISearchDisplayDelegate>
 
 
 @end

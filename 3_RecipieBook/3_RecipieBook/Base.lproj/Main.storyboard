@@ -17,8 +17,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="NX6-qh-T5L">
+                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="3bg-E0-pmK"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="4W2-YN-gqX"/>
+                                </connections>
+                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="recipie_table" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="z2E-Z1-V7v" customClass="RecipieTableView">
-                                <rect key="frame" x="0.0" y="68" width="375" height="546"/>
+                                <rect key="frame" x="0.0" y="122" width="375" height="496"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RecipieCell" id="dOe-Mr-abm" customClass="RecipieTableViewCell">
@@ -37,19 +47,32 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="z2E-Z1-V7v" secondAttribute="bottom" constant="4" id="4XV-j1-UsW"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="z2E-Z1-V7v" secondAttribute="trailing" id="HgA-XT-o9u"/>
-                            <constraint firstItem="z2E-Z1-V7v" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="4" id="Xdu-Xk-Q0n"/>
-                            <constraint firstItem="z2E-Z1-V7v" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="viX-9X-zTU"/>
+                            <constraint firstItem="NX6-qh-T5L" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="0n1-mK-Hre"/>
+                            <constraint firstItem="z2E-Z1-V7v" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="9Xk-Uo-9BA"/>
+                            <constraint firstItem="NX6-qh-T5L" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="DT3-CR-4Ag"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="z2E-Z1-V7v" secondAttribute="bottom" id="P8E-WO-zst"/>
+                            <constraint firstItem="z2E-Z1-V7v" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="58" id="QFW-cx-3Fh"/>
+                            <constraint firstItem="z2E-Z1-V7v" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Xty-nt-ySX"/>
+                            <constraint firstItem="NX6-qh-T5L" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="kp6-eF-rNT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Recipie Book" id="6gV-vK-cZN"/>
                     <connections>
+                        <outlet property="searchDisplayController" destination="jnm-rk-YOF" id="7eZ-hj-3bl"/>
                         <outlet property="tableView" destination="z2E-Z1-V7v" id="Qnh-ri-TTC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="jnm-rk-YOF">
+                    <connections>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="PFo-3d-FW6"/>
+                        <outlet property="searchBar" destination="NX6-qh-T5L" id="ZxY-PD-KAX"/>
+                        <outlet property="searchContentsController" destination="BYZ-38-t0r" id="JYy-zF-cxr"/>
+                        <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="49m-aT-5Tq"/>
+                        <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="RAQ-NC-JXJ"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="711.20000000000005" y="31.934032983508249"/>
         </scene>
