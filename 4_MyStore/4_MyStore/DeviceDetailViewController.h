@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <CoreData/CoreData.h>
 @interface DeviceDetailViewController : UIViewController
-
+@property (strong,nonatomic) NSManagedObject *device;
 @end

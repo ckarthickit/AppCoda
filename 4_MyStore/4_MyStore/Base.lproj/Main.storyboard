@@ -41,6 +41,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="JGv-50-1oz" kind="presentation" identifier="DeviceUpdate" id="A0A-NN-DX6"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -51,7 +54,7 @@
                     <navigationItem key="navigationItem" title="Devices" id="fBO-p7-TwS">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="erR-ey-3P1">
                             <connections>
-                                <segue destination="JGv-50-1oz" kind="presentation" id="I7I-4v-4fU"/>
+                                <segue destination="JGv-50-1oz" kind="presentation" identifier="DeviceCreate" id="I7I-4v-4fU"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -150,4 +153,7 @@
             <point key="canvasLocation" x="-298" y="114"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="A0A-NN-DX6"/>
+    </inferredMetricsTieBreakers>
 </document>
