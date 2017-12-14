@@ -42,12 +42,21 @@
         }
     }
     recipieSections = [NSArray arrayWithObjects:section1, section2, nil];
+    [self setupActions];
 }
 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void) setupActions {
+    UIBarButtonItem *shareButton =self.navigationItem.rightBarButtonItem;
+    if(self.navigationItem.rightBarButtonItem) {
+        shareButton.target = self;
+        shareButton.action = @selector(toggleShare:);
+    }
 }
 
 
@@ -128,8 +137,29 @@
     return CGSizeMake(self.view.frame.size.width, 50.0f);
 }
 
+#pragma mark - Action
+
+- (IBAction) toggleShare:(UIBarButtonItem*) shareButton {
+    if(self.collectionView.allowsMultipleSelection) {
+        shareButton.title = @"Share";
+        for(NSIndexPath *indexPath in [self.collectionView indexPathsForSelectedItems]) {
+            [self.collectionView deselectItemAtIndexPath:indexPath animated:YES];
+        }
+        self.collectionView.allowsMultipleSelection = NO;
+    }else {
+        shareButton.title = @"Un-Share";
+        self.collectionView.allowsMultipleSelection = YES;
+    }
+}
 
 #pragma mark - Navigation
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    if([identifier isEqualToString:@"showRecipieDetail"] && self.collectionView.allowsMultipleSelection) {
+        return NO;
+    }
+    return YES;
+}
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"showRecipieDetail"]) {
