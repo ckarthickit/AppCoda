@@ -32,6 +32,9 @@
 		35C56CFA1FD02A6B00D480D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35C56CF91FD02A6B00D480D2 /* Assets.xcassets */; };
 		35C56CFD1FD02A6B00D480D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35C56CFB1FD02A6B00D480D2 /* LaunchScreen.storyboard */; };
 		35C56D001FD02A6B00D480D2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 35C56CFF1FD02A6B00D480D2 /* main.m */; };
+		35D887641FE2414400C8AA22 /* footer_banner.png in Resources */ = {isa = PBXBuildFile; fileRef = 35D887621FE2414400C8AA22 /* footer_banner.png */; };
+		35D887651FE2414400C8AA22 /* header_banner.png in Resources */ = {isa = PBXBuildFile; fileRef = 35D887631FE2414400C8AA22 /* header_banner.png */; };
+		35D887681FE2427300C8AA22 /* RecipieHeaderReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D887671FE2427300C8AA22 /* RecipieHeaderReusableView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +68,10 @@
 		35C56CFC1FD02A6B00D480D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		35C56CFE1FD02A6B00D480D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35C56CFF1FD02A6B00D480D2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		35D887621FE2414400C8AA22 /* footer_banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = footer_banner.png; path = recipie_images/footer_banner.png; sourceTree = "<group>"; };
+		35D887631FE2414400C8AA22 /* header_banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = header_banner.png; path = recipie_images/header_banner.png; sourceTree = "<group>"; };
+		35D887661FE2427300C8AA22 /* RecipieHeaderReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecipieHeaderReusableView.h; sourceTree = "<group>"; };
+		35D887671FE2427300C8AA22 /* RecipieHeaderReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecipieHeaderReusableView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +97,8 @@
 		356DEC7F1FDFA9D6002D95F3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				35D887621FE2414400C8AA22 /* footer_banner.png */,
+				35D887631FE2414400C8AA22 /* header_banner.png */,
 				356DEC911FDFABB7002D95F3 /* angry_birds_cake.jpg */,
 				356DEC891FDFABB6002D95F3 /* creme_brelee.jpg */,
 				356DEC841FDFABB5002D95F3 /* egg_benedict.jpg */,
@@ -138,6 +147,8 @@
 				35C56CF31FD02A6B00D480D2 /* RecipieCollectionViewController.h */,
 				35C56CF41FD02A6B00D480D2 /* RecipieCollectionViewController.m */,
 				35C56CF61FD02A6B00D480D2 /* Main.storyboard */,
+				35D887661FE2427300C8AA22 /* RecipieHeaderReusableView.h */,
+				35D887671FE2427300C8AA22 /* RecipieHeaderReusableView.m */,
 				35C56CF91FD02A6B00D480D2 /* Assets.xcassets */,
 				35C56CFB1FD02A6B00D480D2 /* LaunchScreen.storyboard */,
 				35C56CFE1FD02A6B00D480D2 /* Info.plist */,
@@ -212,12 +223,14 @@
 				356DEC831FDFAAC0002D95F3 /* Recipies.plist in Resources */,
 				356DEC9B1FDFABB7002D95F3 /* white_chocolate_donut.jpg in Resources */,
 				356DEC971FDFABB7002D95F3 /* egg_benedict.jpg in Resources */,
+				35D887641FE2414400C8AA22 /* footer_banner.png in Resources */,
 				35C56CFD1FD02A6B00D480D2 /* LaunchScreen.storyboard in Resources */,
 				356DECA71FDFABB8002D95F3 /* noodle_with_bbq_pork.jpg in Resources */,
 				356DECA81FDFABB8002D95F3 /* ham_and_cheese_panini.jpg in Resources */,
 				356DECA01FDFABB7002D95F3 /* starbucks_coffee.jpg in Resources */,
 				356DECA21FDFABB7002D95F3 /* hamburger.jpg in Resources */,
 				356DECA11FDFABB7002D95F3 /* green_tea.jpg in Resources */,
+				35D887651FE2414400C8AA22 /* header_banner.png in Resources */,
 				356DECA61FDFABB8002D95F3 /* mushroom_risotto.jpg in Resources */,
 				35C56CFA1FD02A6B00D480D2 /* Assets.xcassets in Resources */,
 				356DEC9A1FDFABB7002D95F3 /* vegetable_curry.jpg in Resources */,
@@ -236,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				35C56CF51FD02A6B00D480D2 /* RecipieCollectionViewController.m in Sources */,
+				35D887681FE2427300C8AA22 /* RecipieHeaderReusableView.m in Sources */,
 				350889F31FE106D3005E4B09 /* Recipie.m in Sources */,
 				35C56D001FD02A6B00D480D2 /* main.m in Sources */,
 				35C56CF21FD02A6B00D480D2 /* AppDelegate.m in Sources */,

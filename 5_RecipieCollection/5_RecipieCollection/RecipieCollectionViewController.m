@@ -7,9 +7,10 @@
 //
 
 #import "RecipieCollectionViewController.h"
+#import "RecipieHeaderReusableView.h"
 #import "Recipie.h"
 
-@interface RecipieCollectionViewController () <UICollectionViewDelegate,UICollectionViewDataSource> {
+@interface RecipieCollectionViewController () <UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout> {
     NSArray <NSArray *>*recipieSections;
 }
 @end
@@ -72,7 +73,26 @@
     return cell;
 }
 
+-(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    UICollectionReusableView *reusableSupplementaryView = nil;
+    if(kind == UICollectionElementKindSectionHeader) {
+        RecipieHeaderReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"RecipieHeader" forIndexPath:indexPath];
+        headerView.background.image = [UIImage imageNamed:@"header_banner.png"];
+        headerView.title.text = [NSString stringWithFormat:@"Recipie Group #%li",indexPath.section];
+        reusableSupplementaryView = headerView;
+    }
+    if(kind == UICollectionElementKindSectionFooter) {
+        UICollectionReusableView *footerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"RecipieFooter" forIndexPath:indexPath];
+        reusableSupplementaryView = footerView;
+    }
+    
+    return reusableSupplementaryView;
+}
+
+#pragma mark Layout Delegate
+
 #define LEFT_RIGHT_INSET 5.0f
+#define TOP_BOTTOM_INSET 20.0f
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     CGFloat picDimension = self.view.frame.size.width / 4.0f;
     return CGSizeMake(picDimension - (2*LEFT_RIGHT_INSET), picDimension);
@@ -91,15 +111,19 @@
     UIEdgeInsets inset = {
         .left = LEFT_RIGHT_INSET,
         .right = LEFT_RIGHT_INSET,
-        .top =0,
-        .bottom =0
+        .top =TOP_BOTTOM_INSET,
+        .bottom =TOP_BOTTOM_INSET
     };
     //return UIEdgeInsetsMake(0, 0, 0, 0);
     return inset;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
-    return CGSizeMake(self.view.frame.size.width, 10.f);
+    return CGSizeMake(self.view.frame.size.width, 50.0f);
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
+    return CGSizeMake(self.view.frame.size.width, 50.0f);
 }
 
 @end
