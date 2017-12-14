@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -42,6 +43,9 @@
                                     <constraint firstItem="8nw-q2-K8e" firstAttribute="top" secondItem="d5Y-2G-7rn" secondAttribute="top" constant="6" id="znf-tm-Pj2"/>
                                 </constraints>
                                 <size key="customSize" width="100" height="100"/>
+                                <connections>
+                                    <segue destination="BZc-GL-c1T" kind="presentation" identifier="showRecipieDetail" id="CTt-k6-110"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="RecipieHeader" id="fwh-6K-88b" customClass="RecipieHeaderReusableView">
@@ -95,6 +99,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5kh-zC-9eQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="630" y="220"/>
+        </scene>
+        <!--Recipie Detail View Controller-->
+        <scene sceneID="irb-xG-ZI8">
+            <objects>
+                <viewController id="BZc-GL-c1T" customClass="RecipieDetailViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LQV-pk-tlZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OJ5-xY-tLr">
+                                <rect key="frame" x="0.0" y="21" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="0VM-rC-gDd">
+                                        <barButtonItem key="rightBarButtonItem" title="Close" id="RoS-VY-mT5">
+                                            <connections>
+                                                <action selector="closeViewController:" destination="BZc-GL-c1T" id="jTF-Lh-O9o"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HnC-qT-LXf">
+                                <rect key="frame" x="5" y="70" width="404" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="S6n-wi-CbH"/>
+                                    <constraint firstAttribute="width" priority="750" constant="320" id="cxO-6f-Wsx"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="HnC-qT-LXf" firstAttribute="top" secondItem="OJ5-xY-tLr" secondAttribute="bottom" constant="5" id="DDP-BC-MCi"/>
+                            <constraint firstItem="OJ5-xY-tLr" firstAttribute="trailing" secondItem="VEs-mb-MTp" secondAttribute="trailing" id="kCz-DE-H4h"/>
+                            <constraint firstItem="OJ5-xY-tLr" firstAttribute="leading" secondItem="VEs-mb-MTp" secondAttribute="leading" id="lYG-2g-oPS"/>
+                            <constraint firstItem="VEs-mb-MTp" firstAttribute="trailing" secondItem="HnC-qT-LXf" secondAttribute="trailing" constant="5" id="r7O-Wl-rNm"/>
+                            <constraint firstItem="OJ5-xY-tLr" firstAttribute="top" secondItem="VEs-mb-MTp" secondAttribute="top" constant="1" id="rZe-8u-elD"/>
+                            <constraint firstItem="HnC-qT-LXf" firstAttribute="leading" secondItem="VEs-mb-MTp" secondAttribute="leading" constant="5" id="uwS-1l-qyL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="VEs-mb-MTp"/>
+                    </view>
+                    <connections>
+                        <outlet property="navBar" destination="OJ5-xY-tLr" id="rvG-wd-0DA"/>
+                        <outlet property="recipieImage" destination="HnC-qT-LXf" id="Qf9-5Q-7ef"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p6B-h0-aXf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1371" y="223"/>
         </scene>
     </scenes>
     <resources>

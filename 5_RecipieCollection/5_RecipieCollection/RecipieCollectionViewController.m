@@ -7,6 +7,7 @@
 //
 
 #import "RecipieCollectionViewController.h"
+#import "RecipieDetailViewController.h"
 #import "RecipieHeaderReusableView.h"
 #import "Recipie.h"
 
@@ -50,7 +51,7 @@
 }
 
 
-#pragma mark Data Source
+#pragma mark - Data Source
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return [recipieSections count];
@@ -70,6 +71,7 @@
     UIImageView *photoFrame = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"photo-frame"]];
     [photoFrame setContentMode:UIViewContentModeScaleToFill];
     cell.backgroundView = photoFrame;
+    cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"photo-frame-selected"]];
     return cell;
 }
 
@@ -89,7 +91,7 @@
     return reusableSupplementaryView;
 }
 
-#pragma mark Layout Delegate
+#pragma mark - Layout Delegate
 
 #define LEFT_RIGHT_INSET 5.0f
 #define TOP_BOTTOM_INSET 20.0f
@@ -124,6 +126,17 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
     return CGSizeMake(self.view.frame.size.width, 50.0f);
+}
+
+
+#pragma mark - Navigation
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"showRecipieDetail"]) {
+        NSIndexPath *indexPath = [[self.collectionView indexPathsForSelectedItems]firstObject];
+        RecipieDetailViewController *dstn = (RecipieDetailViewController*) segue.destinationViewController;
+        dstn.recipie = recipieSections[indexPath.section][indexPath.row];
+    }
 }
 
 @end

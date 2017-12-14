@@ -35,6 +35,7 @@
 		35D887641FE2414400C8AA22 /* footer_banner.png in Resources */ = {isa = PBXBuildFile; fileRef = 35D887621FE2414400C8AA22 /* footer_banner.png */; };
 		35D887651FE2414400C8AA22 /* header_banner.png in Resources */ = {isa = PBXBuildFile; fileRef = 35D887631FE2414400C8AA22 /* header_banner.png */; };
 		35D887681FE2427300C8AA22 /* RecipieHeaderReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D887671FE2427300C8AA22 /* RecipieHeaderReusableView.m */; };
+		35D8876B1FE256A500C8AA22 /* RecipieDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D8876A1FE256A500C8AA22 /* RecipieDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,8 @@
 		35D887631FE2414400C8AA22 /* header_banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = header_banner.png; path = recipie_images/header_banner.png; sourceTree = "<group>"; };
 		35D887661FE2427300C8AA22 /* RecipieHeaderReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecipieHeaderReusableView.h; sourceTree = "<group>"; };
 		35D887671FE2427300C8AA22 /* RecipieHeaderReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecipieHeaderReusableView.m; sourceTree = "<group>"; };
+		35D887691FE256A500C8AA22 /* RecipieDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecipieDetailViewController.h; sourceTree = "<group>"; };
+		35D8876A1FE256A500C8AA22 /* RecipieDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecipieDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +156,8 @@
 				35C56CFB1FD02A6B00D480D2 /* LaunchScreen.storyboard */,
 				35C56CFE1FD02A6B00D480D2 /* Info.plist */,
 				35C56CFF1FD02A6B00D480D2 /* main.m */,
+				35D887691FE256A500C8AA22 /* RecipieDetailViewController.h */,
+				35D8876A1FE256A500C8AA22 /* RecipieDetailViewController.m */,
 			);
 			path = 5_RecipieCollection;
 			sourceTree = "<group>";
@@ -251,6 +256,7 @@
 				35C56CF51FD02A6B00D480D2 /* RecipieCollectionViewController.m in Sources */,
 				35D887681FE2427300C8AA22 /* RecipieHeaderReusableView.m in Sources */,
 				350889F31FE106D3005E4B09 /* Recipie.m in Sources */,
+				35D8876B1FE256A500C8AA22 /* RecipieDetailViewController.m in Sources */,
 				35C56D001FD02A6B00D480D2 /* main.m in Sources */,
 				35C56CF21FD02A6B00D480D2 /* AppDelegate.m in Sources */,
 			);
