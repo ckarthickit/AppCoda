@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ypg-D5-FUD">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="jyi-Fm-oYX">
+            <objects>
+                <viewController id="Ypg-D5-FUD" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YqW-Pq-HDt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KOe-g3-ebt" userLabel="Capture Preview View">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xzk-dg-Hcu" userLabel="Toggle Flash Button">
+                                        <rect key="frame" x="315" y="16" width="44" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="Flash Off Icon"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E0a-xu-w8y" userLabel="Toggle Camera Button">
+                                        <rect key="frame" x="315" y="60" width="44" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="Rear Camera Icon"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="utF-0v-SUg" userLabel="Photo Mode Button">
+                                        <rect key="frame" x="16" y="587" width="44" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="Video Camera Icon"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KLm-gZ-ck3" userLabel="Video Mode Button">
+                                        <rect key="frame" x="16" y="543" width="44" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="Photo Camera Icon">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vP8-VA-NS5">
+                                        <rect key="frame" x="159.5" y="576" width="55" height="55"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="55" id="1HX-OT-aRC"/>
+                                            <constraint firstAttribute="height" constant="55" id="n3y-AE-prt"/>
+                                        </constraints>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="vP8-VA-NS5" firstAttribute="centerX" secondItem="KOe-g3-ebt" secondAttribute="centerX" id="Y1q-KB-ysh"/>
+                                    <constraint firstAttribute="bottom" secondItem="vP8-VA-NS5" secondAttribute="bottom" constant="16" id="rMK-2V-ddf"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="KOe-g3-ebt" firstAttribute="bottom" secondItem="oWh-Y0-Cu4" secondAttribute="bottom" id="3uD-VI-gSh"/>
+                            <constraint firstItem="KOe-g3-ebt" firstAttribute="top" secondItem="oWh-Y0-Cu4" secondAttribute="top" id="UJI-JL-E8A"/>
+                            <constraint firstAttribute="trailing" secondItem="KOe-g3-ebt" secondAttribute="trailing" id="hy9-eZ-p0M"/>
+                            <constraint firstItem="KOe-g3-ebt" firstAttribute="leading" secondItem="YqW-Pq-HDt" secondAttribute="leading" id="taE-Kz-xKP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="oWh-Y0-Cu4"/>
+                    </view>
+                    <connections>
+                        <outlet property="captureButton" destination="vP8-VA-NS5" id="LSo-Yi-6Ed"/>
+                        <outlet property="capturePreviewView" destination="KOe-g3-ebt" id="Icn-bN-4N4"/>
+                        <outlet property="photoModeButton" destination="KLm-gZ-ck3" id="mjP-fp-jG3"/>
+                        <outlet property="toggleCameraButton" destination="E0a-xu-w8y" id="0gm-HL-WNz"/>
+                        <outlet property="toggleFlashButton" destination="xzk-dg-Hcu" id="8Gg-Hq-Ahv"/>
+                        <outlet property="videoModeButton" destination="utF-0v-SUg" id="EY1-dM-hMb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Yy-hF-eKh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="381.60000000000002" y="-135.38230884557723"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Flash Off Icon" width="24" height="24"/>
+        <image name="Photo Camera Icon" width="24" height="24"/>
+        <image name="Rear Camera Icon" width="24" height="24"/>
+        <image name="Video Camera Icon" width="24" height="24"/>
+    </resources>
+</document>
