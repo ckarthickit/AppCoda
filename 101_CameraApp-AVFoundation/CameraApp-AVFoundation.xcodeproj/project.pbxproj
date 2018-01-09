@@ -13,6 +13,7 @@
 		350FB0F82003745E009FE841 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 350FB0F62003745E009FE841 /* LaunchScreen.storyboard */; };
 		350FB0FB2003745E009FE841 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 350FB0FA2003745E009FE841 /* main.m */; };
 		350FB102200378BA009FE841 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 350FB101200378BA009FE841 /* Main.storyboard */; };
+		3523BAFB20049C1600EE0904 /* CameraController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3523BAFA20049C1600EE0904 /* CameraController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		350FB0F92003745E009FE841 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		350FB0FA2003745E009FE841 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		350FB101200378BA009FE841 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		3523BAF920049C1600EE0904 /* CameraController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraController.h; sourceTree = "<group>"; };
+		3523BAFA20049C1600EE0904 /* CameraController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +65,8 @@
 				350FB0EC2003745E009FE841 /* AppDelegate.m */,
 				350FB0EE2003745E009FE841 /* ViewController.h */,
 				350FB0EF2003745E009FE841 /* ViewController.m */,
+				3523BAF920049C1600EE0904 /* CameraController.h */,
+				3523BAFA20049C1600EE0904 /* CameraController.m */,
 				350FB101200378BA009FE841 /* Main.storyboard */,
 				350FB0F42003745E009FE841 /* Assets.xcassets */,
 				350FB0F62003745E009FE841 /* LaunchScreen.storyboard */,
@@ -144,6 +149,7 @@
 			files = (
 				350FB0F02003745E009FE841 /* ViewController.m in Sources */,
 				350FB0FB2003745E009FE841 /* main.m in Sources */,
+				3523BAFB20049C1600EE0904 /* CameraController.m in Sources */,
 				350FB0ED2003745E009FE841 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

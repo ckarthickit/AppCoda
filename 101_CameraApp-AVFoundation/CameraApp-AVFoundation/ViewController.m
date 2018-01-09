@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "CameraController.h"
 
 @interface ViewController ()
 @property (nonatomic,weak) IBOutlet UIButton *captureButton;
@@ -21,6 +22,8 @@
 
 //Allows the user to put the camera in video mode.
 @property (nonatomic,weak) IBOutlet UIButton *videoModeButton;
+
+@property (nonatomic) CameraController *cameraController;
 @end
 
 @implementation ViewController
@@ -28,12 +31,37 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self styleCaptureButton];
+    [self configureCameraController];
 }
 
+-(UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+
+
+- (CameraController *)cameraController {
+    if(_cameraController == nil) {
+        _cameraController = [[CameraController alloc] init];
+    }
+    return _cameraController;
+}
+
+- (void) configureCameraController {
+    [self.cameraController prepareSession:^(NSException *exception) {
+        if(exception == nil) {
+            [self.cameraController displayPreviewOn:self.capturePreviewView];
+        }else {
+            NSLog(@"Exception Occurred %@",exception);
+        }
+    }];
+}
+#pragma mark -View Styles
 - (void) styleCaptureButton {
     self.captureButton.layer.borderColor = [[UIColor blackColor] CGColor];
     self.captureButton.layer.borderWidth = 2;
     self.captureButton.layer.cornerRadius = MIN(self.captureButton.frame.size.width, self.captureButton.frame.size.height)/2;
 }
+
 
 @end
