@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "CameraController.h"
+#import <Photos/Photos.h>
 
 @interface ViewController ()
 @property (nonatomic,weak) IBOutlet UIButton *captureButton;
@@ -32,12 +33,18 @@
     [super viewDidLoad];
     [self styleCaptureButton];
     [self configureCameraController];
+    [_toggleCameraButton addTarget:self action:@selector(toggleCamera:) forControlEvents:UIControlEventTouchUpInside];
+    [_toggleFlashButton addTarget:self action:@selector(toggleFlashMode:) forControlEvents:UIControlEventTouchUpInside];
+    [_captureButton addTarget:self action:@selector(captureImage:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 -(UIInterfaceOrientationMask)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskPortrait;
 }
 
+-(BOOL)prefersStatusBarHidden {
+    return YES;
+}
 
 
 - (CameraController *)cameraController {
@@ -56,6 +63,7 @@
         }
     }];
 }
+
 #pragma mark -View Styles
 - (void) styleCaptureButton {
     self.captureButton.layer.borderColor = [[UIColor blackColor] CGColor];
@@ -63,5 +71,35 @@
     self.captureButton.layer.cornerRadius = MIN(self.captureButton.frame.size.width, self.captureButton.frame.size.height)/2;
 }
 
+#pragma mark -IBACtions
+
+- (IBAction) toggleCamera:(id)sender {
+    [self.cameraController switchCameras];
+    if(self.cameraController.cameraPosition == CameraPositionFront) {
+        [self.toggleCameraButton setImage:[UIImage imageNamed:@"Front Camera Icon"] forState:UIControlStateNormal];
+    }else {
+        [self.toggleCameraButton setImage:[UIImage imageNamed:@"Rear Camera Icon"] forState:UIControlStateNormal];
+    }
+}
+
+- (IBAction) toggleFlashMode:(id)sender {
+    [self.cameraController toggleFlashMode];
+    if(self.cameraController.captureFlashMode == AVCaptureFlashModeOn) {
+        [self.toggleFlashButton setImage:[UIImage imageNamed:@"Flash On Icon"] forState:UIControlStateNormal];
+    }else {
+        [self.toggleFlashButton setImage:[UIImage imageNamed:@"Flash Off Icon"] forState:UIControlStateNormal];
+    }
+}
+
+- (IBAction) captureImage:(id)sender {
+    [self.cameraController captureImage:^(UIImage *image, NSError *error) {
+        [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+            PHAssetChangeRequest *createAssetRequest = [PHAssetChangeRequest creationRequestForAssetFromImage:image];
+            NSLog(@"created @ %@",[createAssetRequest location]);
+        } completionHandler:^(BOOL succcess, NSError *error) {
+            NSLog(@"adding asset succeeeded?%@",succcess?@"Success":error);
+        }];
+    }];
+}
 
 @end

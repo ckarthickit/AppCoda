@@ -17,14 +17,20 @@ static NSString *const CameraControllerNoCamerasAvailable = @"NO_CAMERAS_AVAILAB
 static NSString *const CameraControllerUnknown = @"UNKNOWN";
 
 typedef NS_ENUM(unsigned short,CameraPosition){
-    CAMERA_POSITION_UNKNOWN,
-    CAMERA_POSITION_FRONT,
-    CAMERA_POSITION_REAR
+    CameraPositionUnknown,
+    CameraPositionFront,
+    CameraPositionRear
 };
 
 typedef void (^CameraControllerCompletionHandler) (NSException *exception);
+typedef void (^PhotoCaptureCompletionBlock) (UIImage *image, NSError *error);
 
 @interface CameraController : NSObject
+@property (nonatomic, readonly) CameraPosition cameraPosition;
+@property (nonatomic, readonly) AVCaptureFlashMode captureFlashMode;
 - (void) prepareSession: (CameraControllerCompletionHandler) completionHandler;
 - (void) displayPreviewOn : (UIView *) previewView;
+- (void) switchCameras;
+- (void) toggleFlashMode;
+- (void) captureImage : (PhotoCaptureCompletionBlock) completion;
 @end
