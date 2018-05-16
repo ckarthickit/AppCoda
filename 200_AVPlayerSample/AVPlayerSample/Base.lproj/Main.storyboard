@@ -85,7 +85,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="playerURL" destination="xFb-S1-8YU" id="5Wf-fw-rf0"/>
+                        <outlet property="playerURLView" destination="xFb-S1-8YU" id="4lV-jc-DTO"/>
                         <outlet property="playerView" destination="SRQ-U9-dc3" id="YRN-6P-W7P"/>
                     </connections>
                 </viewController>

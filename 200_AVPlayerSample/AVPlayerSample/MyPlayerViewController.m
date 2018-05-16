@@ -9,9 +9,9 @@
 #import "MyPlayerView.h"
 #import "MyPlayerController.h"
 
-@interface MyPlayerViewController ()
+@interface MyPlayerViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet MyPlayerView *playerView;
-@property (weak, nonatomic) IBOutlet UITextField *playerURL;
+@property (weak, nonatomic) IBOutlet UITextField *playerURLView;
 @end
 
 @implementation MyPlayerViewController {
@@ -27,6 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.playerURLView.delegate = self;
 }
 
 
@@ -37,7 +38,7 @@
 
 - (IBAction)playContent:(UIButton *)playButton {
     if([[self playerController] isPlaying] == NO) {
-        NSString *playerURLString = [self.playerURL text];
+        NSString *playerURLString = [self.playerURLView text];
         NSURL *url = [NSURL URLWithString:playerURLString];
         NSLog(@"playing URL = %@", [url absoluteString]);
         [[self playerController] setLayer:[_playerView playerLayer]];
@@ -55,6 +56,16 @@
 - (IBAction)stopContent:(UIButton *)stopButton {
     [[self playerController] shutdown];
     _playerController = nil;
+}
+
+#pragma mark TextField Delegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if(textField == self.playerURLView) {
+        return [textField resignFirstResponder];
+    }else {
+        return NO;
+    }
 }
 
 @end

@@ -163,10 +163,20 @@ static NSString * kMyPlayerItemContext = @"com_kar_ios_MyPlayerItemContext";
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
     if(context == (&kMyPlayerContext)) {
-        NSLog(@"keypath=%@, change=[%@]",keyPath,change);
+        NSLog(@"%s: player-keypath=%@, change=[%@]",__PRETTY_FUNCTION__, keyPath, change);
         if([keyPath isEqualToString:kMyPlayerPlaybackStatus]) {
-            NSLog(@"MyPlayer %@ status changed to: %ld with item: %@", self, (long)self.player.status, _playerItem);
             [self evaluatePlayerStatus];
+        }
+    }else if(context == (&kMyPlayerItemContext)) {
+        NSLog(@"%s: playerItem-keypath=%@, change=[%@]",__PRETTY_FUNCTION__, keyPath, change);
+        if([keyPath isEqualToString:kMyPlayerItemPlaybackDuration]) {
+            NSKeyValueChange changeKind = [[change valueForKey:NSKeyValueChangeKindKey] integerValue];
+            if(changeKind == NSKeyValueChangeSetting) {
+                NSValue *value= [change valueForKey:NSKeyValueChangeNewKey];
+                CMTime time = [value CMTimeValue];
+                NSLog(@"duration_from_change = %lld scale=%d", time.value, time.timescale);
+                NSLog(@"duration_from_player = %lld scale=%d", [[[self player] currentItem] duration].value,[[[self player] currentItem] duration].timescale);
+            }
         }
     }
 }
@@ -186,7 +196,7 @@ static NSString * kMyPlayerItemContext = @"com_kar_ios_MyPlayerItemContext";
 #pragma mark Internal Handlers
 -(void) evaluatePlayerStatus {
     if(self.player.status == AVPlayerStatusReadyToPlay) {
-        NSLog(@"Gonna Player %@",[_player currentItem]);
+        NSLog(@"Gonna Play %@",[_player currentItem]);
         self->_isPrepared = YES;
         [self.player play];
         self->_isPlaying = YES;
