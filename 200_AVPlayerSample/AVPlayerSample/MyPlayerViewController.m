@@ -5,6 +5,7 @@
 //  Created by Karthick C on 14/05/18.
 //  Copyright © 2018 Karthick C. All rights reserved.
 //
+#import <AFNetworking/AFNetworking.h>
 #import "MyPlayerViewController.h"
 #import "MyPlayerView.h"
 #import "MyPlayerController.h"
@@ -28,6 +29,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.playerURLView.delegate = self;
+    NSURLSessionConfiguration *defaultConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:defaultConfig];
 }
 
 

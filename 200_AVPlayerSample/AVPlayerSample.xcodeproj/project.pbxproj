@@ -15,9 +15,11 @@
 		352361AA20A93D490004764F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 352361A920A93D490004764F /* main.m */; };
 		352361B220A93F690004764F /* MyPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 352361B120A93F690004764F /* MyPlayerView.m */; };
 		352361B520A9ABE60004764F /* MyPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 352361B420A9ABE60004764F /* MyPlayerController.m */; };
+		8EE6C08173B830D01600EF42 /* libPods-AVPlayerSample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A98B91D9ECA2D715EB83AB9 /* libPods-AVPlayerSample.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		012A83DE818ABF5AC81966F4 /* Pods-AVPlayerSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AVPlayerSample.release.xcconfig"; path = "Pods/Target Support Files/Pods-AVPlayerSample/Pods-AVPlayerSample.release.xcconfig"; sourceTree = "<group>"; };
 		3523619720A93D490004764F /* AVPlayerSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AVPlayerSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3523619A20A93D490004764F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3523619B20A93D490004764F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -32,6 +34,8 @@
 		352361B120A93F690004764F /* MyPlayerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyPlayerView.m; sourceTree = "<group>"; };
 		352361B320A9ABE60004764F /* MyPlayerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyPlayerController.h; sourceTree = "<group>"; };
 		352361B420A9ABE60004764F /* MyPlayerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyPlayerController.m; sourceTree = "<group>"; };
+		59C01E52B4D101C0FFF3231C /* Pods-AVPlayerSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AVPlayerSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AVPlayerSample/Pods-AVPlayerSample.debug.xcconfig"; sourceTree = "<group>"; };
+		6A98B91D9ECA2D715EB83AB9 /* libPods-AVPlayerSample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AVPlayerSample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,17 +43,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EE6C08173B830D01600EF42 /* libPods-AVPlayerSample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0EDBE93C4280DA3439EA13D8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				59C01E52B4D101C0FFF3231C /* Pods-AVPlayerSample.debug.xcconfig */,
+				012A83DE818ABF5AC81966F4 /* Pods-AVPlayerSample.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		3523618E20A93D490004764F = {
 			isa = PBXGroup;
 			children = (
 				3523619920A93D490004764F /* AVPlayerSample */,
 				3523619820A93D490004764F /* Products */,
+				0EDBE93C4280DA3439EA13D8 /* Pods */,
+				45E214C0C06486973843D3EB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +113,14 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		45E214C0C06486973843D3EB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6A98B91D9ECA2D715EB83AB9 /* libPods-AVPlayerSample.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -104,9 +128,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 352361AD20A93D490004764F /* Build configuration list for PBXNativeTarget "AVPlayerSample" */;
 			buildPhases = (
+				14A5B9FBD56BD38F929BA4F8 /* [CP] Check Pods Manifest.lock */,
 				3523619320A93D490004764F /* Sources */,
 				3523619420A93D490004764F /* Frameworks */,
 				3523619520A93D490004764F /* Resources */,
+				9FDCE9F2D4755C455F4D64EE /* [CP] Embed Pods Frameworks */,
+				0384FDEE92F53E9B4828C1B0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -162,6 +189,57 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0384FDEE92F53E9B4828C1B0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AVPlayerSample/Pods-AVPlayerSample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		14A5B9FBD56BD38F929BA4F8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AVPlayerSample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9FDCE9F2D4755C455F4D64EE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AVPlayerSample/Pods-AVPlayerSample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3523619320A93D490004764F /* Sources */ = {
@@ -304,6 +382,7 @@
 		};
 		352361AE20A93D490004764F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 59C01E52B4D101C0FFF3231C /* Pods-AVPlayerSample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -318,6 +397,7 @@
 		};
 		352361AF20A93D490004764F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 012A83DE818ABF5AC81966F4 /* Pods-AVPlayerSample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
