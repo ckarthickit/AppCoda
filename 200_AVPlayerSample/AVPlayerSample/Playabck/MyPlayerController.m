@@ -33,6 +33,11 @@ static NSString * kMyPlayerItemContext = @"com_kar_ios_MyPlayerItemContext";
     BOOL _isPlaying;
 }
 
+
++ (void) setAudioCategoryAsPlayback {
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+}
+
 - (instancetype)init {
     if(self = [super init]) {
         _isPlayerObserversRegistered = NO;

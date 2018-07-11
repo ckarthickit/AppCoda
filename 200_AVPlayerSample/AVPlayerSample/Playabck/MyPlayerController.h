@@ -10,7 +10,7 @@
 #import <Foundation/Foundation.h>
 
 @interface MyPlayerController : NSObject
-
++ (void) setAudioCategoryAsPlayback;
 - (void) setLayer: (AVPlayerLayer *) layer;
 - (void) playURL: (NSURL *) url;
 - (BOOL) isPlaying;
