@@ -64,7 +64,7 @@
                                     <action selector="pauseContent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="L3a-dl-95Z"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xhc-xw-Iew">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xhc-xw-Iew" userLabel="BuiltIn Contents">
                                 <rect key="frame" x="335" y="303" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Xhc-xw-Iew" secondAttribute="height" id="0aA-SQ-SYK"/>
