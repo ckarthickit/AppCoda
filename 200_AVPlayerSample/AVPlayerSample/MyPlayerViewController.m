@@ -9,10 +9,13 @@
 #import "MyPlayerViewController.h"
 #import "MyPlayerView.h"
 #import "MyPlayerController.h"
+#import "BuiltInContentSelectionDelegate.h"
+#import "BuiltInContent.h"
 
-@interface MyPlayerViewController ()<UITextFieldDelegate>
+@interface MyPlayerViewController ()<UITextFieldDelegate,BuiltInContentSelectionDelegate>
 @property (weak, nonatomic) IBOutlet MyPlayerView *playerView;
 @property (weak, nonatomic) IBOutlet UITextField *playerURLView;
+@property (nonatomic) BuiltInContent *selectedBuiltInContent;
 @end
 
 @implementation MyPlayerViewController {
@@ -68,6 +71,23 @@
         return [textField resignFirstResponder];
     }else {
         return NO;
+    }
+}
+
+#pragma mark - BuiltInContentSelectionDelegate
+
+- (void)didSelectBuiltInItem:(BuiltInContent *)content {
+    self.selectedBuiltInContent = content;
+    self.playerURLView.text = self.selectedBuiltInContent.contentURL;
+}
+
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"builtInContentList"]) {
+        [segue.destinationViewController setValue:self forKey:@"builtInContentSelectionDelegate"];
     }
 }
 
