@@ -20,6 +20,7 @@
 		3595DA4020F5E6FC00BFEAE9 /* BuiltInContents.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3595DA3F20F5E6FC00BFEAE9 /* BuiltInContents.plist */; };
 		3595DA4420F5E9E700BFEAE9 /* BuiltInContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3595DA4320F5E9E700BFEAE9 /* BuiltInContent.m */; };
 		3595DA4720F5F18B00BFEAE9 /* PropertyLists.m in Sources */ = {isa = PBXBuildFile; fileRef = 3595DA4620F5F18B00BFEAE9 /* PropertyLists.m */; };
+		35D4A10920F7112700DE56CF /* MyAVURLAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D4A10820F7112700DE56CF /* MyAVURLAsset.m */; };
 		8EE6C08173B830D01600EF42 /* libPods-AVPlayerSample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A98B91D9ECA2D715EB83AB9 /* libPods-AVPlayerSample.a */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,8 @@
 		3595DA4520F5F18B00BFEAE9 /* PropertyLists.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PropertyLists.h; sourceTree = "<group>"; };
 		3595DA4620F5F18B00BFEAE9 /* PropertyLists.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PropertyLists.m; sourceTree = "<group>"; };
 		3595DA4820F60FDC00BFEAE9 /* BuiltInContentSelectionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BuiltInContentSelectionDelegate.h; sourceTree = "<group>"; };
+		35D4A10720F7112700DE56CF /* MyAVURLAsset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyAVURLAsset.h; sourceTree = "<group>"; };
+		35D4A10820F7112700DE56CF /* MyAVURLAsset.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyAVURLAsset.m; sourceTree = "<group>"; };
 		59C01E52B4D101C0FFF3231C /* Pods-AVPlayerSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AVPlayerSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AVPlayerSample/Pods-AVPlayerSample.debug.xcconfig"; sourceTree = "<group>"; };
 		6A98B91D9ECA2D715EB83AB9 /* libPods-AVPlayerSample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AVPlayerSample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -120,6 +123,8 @@
 				352361B120A93F690004764F /* MyPlayerView.m */,
 				352361B320A9ABE60004764F /* MyPlayerController.h */,
 				352361B420A9ABE60004764F /* MyPlayerController.m */,
+				35D4A10720F7112700DE56CF /* MyAVURLAsset.h */,
+				35D4A10820F7112700DE56CF /* MyAVURLAsset.m */,
 			);
 			path = Playabck;
 			sourceTree = "<group>";
@@ -289,6 +294,7 @@
 				3595DA4420F5E9E700BFEAE9 /* BuiltInContent.m in Sources */,
 				3595DA3B20F5D7E900BFEAE9 /* MyPlayerNavigationController.m in Sources */,
 				352361B520A9ABE60004764F /* MyPlayerController.m in Sources */,
+				35D4A10920F7112700DE56CF /* MyAVURLAsset.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

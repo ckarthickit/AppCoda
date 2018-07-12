@@ -8,6 +8,7 @@
 
 
 #import "MyPlayerController.h"
+#import "MyAVURLAsset.h"
 static NSString * const kMyPlayerPlaybackStatus = @"status";
 static NSString * const kMyPlayerPlaybackRate = @"rate";
 static NSString * const kMyPlayerPlaybackTimeControlStatus = @"timeControlStatus";
@@ -21,12 +22,18 @@ static NSString * const kMyPlayerItemPlaybackLikelyToKeepUp = @"playbackLikelyTo
 static NSString * const kMyPlayerItemPlaybackLoadedTimeRanges = @"loadedTimeRanges";
 static NSString * const kMyPlayerItemPlaybackTimeMetadata = @"timedMetadata";
 
+static NSString * const kMyAssetPropertyPlayable = @"playable";
+static NSString * const kMyAssetPropertyExportable = @"exportable";
+static NSString * const kMyAssetPropertyHasProtectedContent = @"hasProtectedContent";
+
 static NSString * kMyPlayerContext = @"com_kar_ios_MyPlayerContext";
 static NSString * kMyPlayerItemContext = @"com_kar_ios_MyPlayerItemContext";
+static NSString * kMyAssetContext = @"com_kar_ios_MyAssetContext";
 
 @implementation MyPlayerController{
     AVPlayer *_player;
     AVPlayerItem *_playerItem;
+    AVAsset *_asset;
     AVPlayerLayer *_playlayer;
     BOOL _isPlayerObserversRegistered;
     BOOL _isPrepared;
@@ -134,8 +141,44 @@ static NSString * kMyPlayerItemContext = @"com_kar_ios_MyPlayerItemContext";
 }
 
 - (void)playURL:(NSURL *) url{
+    [self prepareWithURL:url];
+}
+
+-(BOOL) isPlaying {
+    return self->_isPlaying;
+}
+
+-(void) prepareWithURL:(NSURL *) url{
     //create AVPlayerItem
-    [self setPlayerItem:[AVPlayerItem playerItemWithAsset:[AVAsset assetWithURL:url]]];
+    if(_asset != nil) {
+        //Unregister KVOs
+        [_asset removeObserver:self forKeyPath:kMyAssetPropertyPlayable context:&kMyAssetContext];
+        [_asset removeObserver:self forKeyPath:kMyAssetPropertyHasProtectedContent context:&kMyAssetContext];
+        _asset = nil;
+    }
+    _asset = [[MyAVURLAsset alloc]initWithURL:url options:nil];
+    //Register KVOs
+    NSKeyValueObservingOptions options = (NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew);
+    [_asset addObserver:self forKeyPath:kMyAssetPropertyPlayable options:options context:&kMyAssetContext];
+    [_asset addObserver:self forKeyPath:kMyAssetPropertyHasProtectedContent options:options context:&kMyAssetContext];
+    NSLog(@"Loading Keys asynchronously");
+    //Asynchronously load the asset
+    [_asset loadValuesAsynchronouslyForKeys:@[kMyAssetPropertyPlayable,kMyAssetPropertyHasProtectedContent] completionHandler:^{
+         NSLog(@"Loaded Keys asynchronously");
+        __weak typeof(self) weakSelf = self;
+        __weak typeof(_asset) weakAsset = _asset;
+        AVKeyValueStatus status = [weakAsset statusOfValueForKey:kMyAssetPropertyPlayable error:nil];
+        if(status == AVKeyValueStatusLoaded) {
+         [weakSelf loadWithAsset:_asset];
+        }else {
+            NSLog(@"Invalid status for key %ld", status);
+        }
+    }];
+}
+
+-(void) loadWithAsset:(AVAsset *) asset{
+    NSLog(@"%s",__PRETTY_FUNCTION__);
+    [self setPlayerItem:[AVPlayerItem playerItemWithAsset:asset]];
     //register KVO's
     [self setupObservers];
     //Assocaite Layer with Player
@@ -144,9 +187,6 @@ static NSString * kMyPlayerItemContext = @"com_kar_ios_MyPlayerItemContext";
     [[self player] replaceCurrentItemWithPlayerItem:_playerItem];
 }
 
--(BOOL) isPlaying {
-    return self->_isPlaying;
-}
 -(void) play {
     [[self player] play];
 }
@@ -173,16 +213,29 @@ static NSString * kMyPlayerItemContext = @"com_kar_ios_MyPlayerItemContext";
             [self evaluatePlayerStatus];
         }
     }else if(context == (&kMyPlayerItemContext)) {
-        NSLog(@"%s: playerItem-keypath=%@, change=[%@]",__PRETTY_FUNCTION__, keyPath, change);
+        //NSLog(@"%s: playerItem-keypath=%@, change=[%@]",__PRETTY_FUNCTION__, keyPath, change);
         if([keyPath isEqualToString:kMyPlayerItemPlaybackDuration]) {
             NSKeyValueChange changeKind = [[change valueForKey:NSKeyValueChangeKindKey] integerValue];
             if(changeKind == NSKeyValueChangeSetting) {
                 NSValue *value= [change valueForKey:NSKeyValueChangeNewKey];
                 CMTime time = [value CMTimeValue];
-                NSLog(@"duration_from_change = %lld scale=%d", time.value, time.timescale);
-                NSLog(@"duration_from_player = %lld scale=%d", [[[self player] currentItem] duration].value,[[[self player] currentItem] duration].timescale);
+                //NSLog(@"duration_from_change = %lld scale=%d", time.value, time.timescale);
+                //NSLog(@"duration_from_player = %lld scale=%d", [[[self player] currentItem] duration].value,[[[self player] currentItem] duration].timescale);
             }
         }
+    }else if(context == (&kMyAssetContext)) {
+        NSLog(@"%s: AVAsset-keypath=%@, change=[%@]",__PRETTY_FUNCTION__, keyPath, change);
+//        if([keyPath isEqualToString:kMyAssetPropertyPlayable]) {
+//            NSKeyValueChange changeKind = [[change valueForKey:NSKeyValueChangeKindKey] integerValue];
+//            if(changeKind == NSKeyValueChangeSetting) {
+//                NSValue *value = [change valueForKey:NSKeyValueChangeNewKey];
+//                BOOL isPlayable = NO;
+//                [value getValue:&isPlayable];
+//                NSLog(@"asset_playbable? = %d",isPlayable);
+//            }
+//        }else if([keyPath isEqualToString:kMyAssetPropertyHasProtectedContent]) {
+//            NSLog(@"asset_hasProtectedContent? = %d", self->_asset.hasProtectedContent );
+//        }
     }
 }
 
